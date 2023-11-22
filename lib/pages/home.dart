@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
                       icon: Icon(Icons.edit_location),
                       label: Text("Edit Location")
                   ),
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 90.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

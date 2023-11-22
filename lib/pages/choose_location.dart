@@ -11,12 +11,12 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 
   List<WorldTime> locations = [
+    WorldTime(location: 'Accra', flag: 'ghana-flag.jpg', url: 'Africa/Ghana', isDaytime: true),
+    WorldTime(location: 'London', flag: 'uk-flag.jpg', url: 'Europe/London', isDaytime: true),
+    WorldTime(location: 'America', flag: 'argentina-flag.jpg', url: 'Argentina/Salta', isDaytime: true),
+    WorldTime(location: 'London', flag: '', url: 'Europe/London', isDaytime: true),
     WorldTime(location: 'Accra', flag: '', url: 'Africa/Ghana', isDaytime: true),
-    WorldTime(location: 'London', flag: '', url: 'Europe/London', isDaytime: true),
-    WorldTime(location: 'America', flag: '', url: 'Argentina/Salta', isDaytime: true),
-    WorldTime(location: 'London', flag: '', url: 'Europe/London', isDaytime: true),
-    WorldTime(location: 'Accra', flag: '', url: 'Africa/Ghana', isDaytime: true),
-    WorldTime(location: 'London', flag: '', url: 'Europe/London', isDaytime: true),
+    WorldTime(location: 'New York', flag: 'us-flag.jpg', url: 'America/New_York', isDaytime: true),
     WorldTime(location: 'Accra', flag: '', url: 'Africa/Ghana', isDaytime: true),
     WorldTime(location: 'London', flag: '', url: 'Europe/London', isDaytime: true),
   ];
@@ -34,10 +34,16 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: ListView.builder(
         itemCount: locations.length,
         itemBuilder: (context, index){
-          return Card(
-            child: ListTile(
-              onTap: () {},
-              title: Text(locations[index].location),
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(locations[index].location),
+                leading:CircleAvatar(
+                  backgroundImage: AssetImage('assets/${locations[index].flag}'),
+                ),
+              ),
             ),
           );
         }),
