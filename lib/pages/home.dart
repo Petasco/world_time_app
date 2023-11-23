@@ -14,8 +14,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     //Map<String, dynamic> arguments = ModalRoute.of(context).settings.arguments as Map<String, dynamic>;
-    data = ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
-    print(data);
+    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
+    //print(data);
 
     String bgImage = data['isDaytime']? 'daytime.jpeg' : 'night_bg.jpg';
     Color bgColor = data['isDaytime']? Colors.blue : Colors.black;
@@ -35,19 +35,28 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   ElevatedButton.icon(
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/location');
+                      onPressed: () async {
+                        dynamic results = await Navigator.pushNamed(context, '/location');
+
+                        setState(() {
+                          data = {
+                            'time': results['time'],
+                            'location': results['location'],
+                            'isDaytime': results['isDaytime'],
+                            'flag': results['flag'],
+                          };
+                        });
                       },
-                      icon: Icon(Icons.edit_location),
-                      label: Text("Edit Location")
+                      icon: const Icon(Icons.edit_location),
+                      label: const Text("Edit Location")
                   ),
-                  SizedBox(height: 90.0),
+                  const SizedBox(height: 90.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         data['location'],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 28.0,
                           letterSpacing: 2.0,
                           color: Colors.white,
@@ -55,10 +64,10 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Text(
                     data['time'],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 66.0,
                       color: Colors.white,
                     ),

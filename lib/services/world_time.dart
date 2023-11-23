@@ -23,11 +23,11 @@ class WorldTime{
 
       // get the properties from the data
       String datatime = data['datetime'];
-      String utc_offset = data['utc_offset'].substring(1,3);
+      String utcOffset = data['utc_offset'].substring(1,3);
 
       // create DateTime object
       DateTime now = DateTime.parse(datatime);
-      now = now.add(Duration(hours: int.parse(utc_offset)));
+      now = now.add(Duration(hours: int.parse(utcOffset)));
 
       isDaytime = now.hour > 6 && now.hour < 20? true : false;
       time = DateFormat.jm().format(now);

@@ -13,7 +13,7 @@ class _LoadingState extends State<Loading> {
 
 
   void setupworldTime() async{
-    WorldTime instance = WorldTime(location: "Accra", flag: 'ghana.png', url: 'Africa/Accra', isDaytime: true);
+    WorldTime instance = WorldTime(location: "Ghana - Accra", flag: 'ghana.png', url: 'Africa/Accra', isDaytime: true);
     await instance.getTime();
 
     Navigator.pushReplacementNamed(context, '/home', arguments: {
@@ -33,7 +33,7 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
         child: SpinKitFadingCircle(
