@@ -19,6 +19,15 @@ class _ChooseLocationState extends State<ChooseLocation> {
     WorldTime(location: 'New York', flag: 'uk-flag.jpg', url: 'America/New_York', isDaytime: true),
     WorldTime(location: 'Nigeria - Legos', flag: 'nigeria-flag.jpg', url: 'Africa/Nigeria', isDaytime: true),
     WorldTime(location: 'Cairo', flag: 'egypt-flag.gif', url: 'Africa/Egypt', isDaytime: true),
+
+    WorldTime(location: 'Ghana - Accra', flag: 'ghana-flag.jpg', url: 'Africa/Ghana', isDaytime: true),
+    WorldTime(location: 'London', flag: 'uk-flag.jpg', url: 'Europe/London', isDaytime: true),
+    WorldTime(location: 'America', flag: 'argentina-flag.jpg', url: 'Argentina/Salta', isDaytime: true),
+    WorldTime(location: 'Seoul', flag: 'south-korea-flag.jpg', url: 'Asia/Seoul', isDaytime: true),
+    WorldTime(location: 'Berlin', flag: 'germany-flag.jpg', url: 'Europe/Berlin', isDaytime: true),
+    WorldTime(location: 'New York', flag: 'uk-flag.jpg', url: 'America/New_York', isDaytime: true),
+    WorldTime(location: 'Nigeria - Legos', flag: 'nigeria-flag.jpg', url: 'Africa/Nigeria', isDaytime: true),
+    WorldTime(location: 'Cairo', flag: 'egypt-flag.gif', url: 'Africa/Egypt', isDaytime: true),
   ];
 
   void updateTime(index) async {
