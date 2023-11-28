@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  //const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -13,12 +14,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-    //Map<String, dynamic> arguments = ModalRoute.of(context).settings.arguments as Map<String, dynamic>;
-    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
-    //print(data);
+    try {
+      data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
+    } catch (e) {
+      print("Oops: $e");
+    }
 
-    String bgImage = data['isDaytime']? 'daytime.jpeg' : 'night_bg.jpg';
-    Color bgColor = data['isDaytime']? Colors.blue : Colors.black;
+    String bgImage = data?['isDaytime'] ?? true ? 'daytime.jpeg' : 'night_bg.jpg';
+    Color bgColor = data?['isDaytime'] ?? true ? Colors.blue : Colors.black;
 
     return Scaffold(
       backgroundColor: bgColor,
